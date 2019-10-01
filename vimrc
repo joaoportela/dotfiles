@@ -1,4 +1,4 @@
-# set background=dark
+" set background=dark " for WSL
 set hlsearch
 
 
@@ -9,6 +9,9 @@ if has("autocmd")
 
     " Use actual tab chars in Makefiles.
     autocmd FileType make set tabstop=8 shiftwidth=8 softtabstop=0 noexpandtab
+
+    " Use 2 spaces shell scripts.
+    autocmd FileType sh set tabstop=2 shiftwidth=2 softtabstop=0 expandtab
 endif
 
 " For everything else, use a tab width of 4 space chars.
