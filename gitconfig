@@ -3,7 +3,7 @@
 	pager = diff-so-fancy | less --tabs=4 -RFX
 [alias]
 	lg = log --all --graph --decorate --oneline --abbrev-commit
-	gud = !git fetch --all --prune && git branch -v
+	gud = !git fetch --all --prune && git branch -vv
 	subm-init = submodule update --init --recursive
 	subm = submodule update --recursive
 	subm1 = !git submodule sync && git submodule update --init --recursive --remote
