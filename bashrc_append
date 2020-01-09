@@ -58,3 +58,20 @@ case $ec in
   *) ;; # ignore other exit codes, don't know what they are
 esac
 
+### PATH ###
+
+path_append() {
+    if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]; then
+        PATH="${PATH:+"$PATH:"}$1"
+    fi
+}
+
+path_prepend() {
+    if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]; then
+        PATH="${PATH:+"$PATH:"}$1"
+    fi
+}
+
+# set PATH so it includes user's private bin if it exists
+path_prepend "$HOME/bin"
+path_prepend "$HOME/.local/bin"
