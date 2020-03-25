@@ -33,9 +33,11 @@ if [ -f  ~/.local/bin/terraform ]; then
   complete -C ~/.local/bin/terraform terraform
 fi
 
+# autocomplete for aws cli
 if [ -f ~/.local/bin/aws_completer ]; then
-  # autocomplete for aws cli
   complete -C ~/.local/bin/aws_completer aws
+elif [ -f /usr/local/bin/aws_completer ]; then
+  complete -C /usr/local/bin/aws_completer aws
 fi
 
 if [ -f  ~/.local/bin/awless ]; then
