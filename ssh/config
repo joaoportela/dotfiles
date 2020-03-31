@@ -2,3 +2,5 @@ Host *
  AddKeysToAgent yes
 Host bitbucket.abyssal.lan
  IdentityFile /p/keys/code.abyssal.eu.ed25519
+Host github.com
+ IdentityFile /p/keys/github_key.ed25519
