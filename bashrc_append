@@ -45,7 +45,6 @@ if [ -f  ~/.local/bin/awless ]; then
 fi
 
 ## ssh-agent ##
-export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
 ssh-add -l &> /dev/null ; ec=$?  # grab the exit code into a variable so that it can
                                  # be reused later, without the fear of being overwritten
 case $ec in
@@ -54,7 +53,6 @@ case $ec in
   2) 
     # relaunch agent. and link the known socket path to this new socket.
     eval $(ssh-agent -s)
-    ln -sf "$SSH_AUTH_SOCK" ~/.ssh/ssh_auth_sock
     # no need to reset SSH_AUTH_SOCK env var.
     ;; 
   *) ;; # ignore other exit codes, don't know what they are
