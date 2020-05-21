@@ -9,6 +9,7 @@
 	subm1 = !git submodule sync && git submodule update --init --recursive --remote
 	hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
 	last = log -1 HEAD
+	alias = ! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
 [color]
 	ui = true
 [color "diff-highlight"]
