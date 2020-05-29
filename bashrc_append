@@ -45,6 +45,14 @@ if [ -f  ~/.local/bin/awless ]; then
 fi
 
 ## ssh-agent ##
+if [ ! -S "${SSH_AUTH_SOCK}" ]; then
+  # Env var not set or doesn't point to a socket file. Point it to the known
+  # socket path.
+  export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
+  # If known path points to a socket connected to a running agent, no new agent
+  # will be launched.
+fi
+
 ssh-add -l &> /dev/null ; ec=$?  # grab the exit code into a variable so that it can
                                  # be reused later, without the fear of being overwritten
 case $ec in
@@ -53,7 +61,10 @@ case $ec in
   2) 
     # relaunch agent. and link the known socket path to this new socket.
     eval $(ssh-agent -s)
-    # no need to reset SSH_AUTH_SOCK env var.
+    ln -sf "$SSH_AUTH_SOCK" ~/.ssh/ssh_auth_sock
+    # no need to reset SSH_AUTH_SOCK env var. but doing it anyway for
+    # consistency.
+    export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
     ;; 
   *) ;; # ignore other exit codes, don't know what they are
 esac
