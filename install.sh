@@ -3,7 +3,7 @@
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 # link dotfiles
-for f in "gitconfig" "vimrc" "ssh/config"
+for f in "gitconfig" "vimrc" "ssh/config" "tmux.conf"
 do
   cp --verbose -s "${DIR}/${f}" "${HOME}/.${f}"
 done
