@@ -101,3 +101,5 @@ path_prepend "$HOME/.local/bin"
 # ignore jrnl entries
 # HISTIGNORE="$HISTIGNORE:jrnl *"
 
+# aliases
+alias gg='git gud'
