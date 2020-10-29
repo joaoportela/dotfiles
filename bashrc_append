@@ -96,3 +96,8 @@ path_prepend() {
 # set PATH so it includes user's private bin if it exists
 path_prepend "$HOME/bin"
 path_prepend "$HOME/.local/bin"
+
+## bash history ##
+# ignore jrnl entries
+# HISTIGNORE="$HISTIGNORE:jrnl *"
+
