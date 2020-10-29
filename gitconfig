@@ -2,7 +2,7 @@
 	editor = vim
 	pager = diff-so-fancy | less --tabs=4 -RFX
 [alias]
-	lg = log --all --graph --decorate --oneline --abbrev-commit
+	lg = log --all --graph --decorate --oneline --abbrev-commit --no-show-signature
 	gud = !git fetch --all --prune && git branch -vv
 	subm-init = submodule update --init --recursive
 	subm = submodule update --recursive
