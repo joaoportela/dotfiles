@@ -7,6 +7,16 @@ if grep --quiet Microsoft /proc/version; then
 
 fi
 
+# virtualenv
+function __virtualenv_ps1 {
+    echo "${VIRTUAL_ENV:+(venv:${VIRTUAL_ENV##*/})\n}"
+}
+
+# disable the default virtualenv prompt change
+export VIRTUAL_ENV_DISABLE_PROMPT=1
+# prepend to PS1
+export PS1="\$(__virtualenv_ps1)$PS1"
+
 # from https://gist.github.com/eliotsykes/47516b877f5a4f7cd52f#gistcomment-2835293
 # GIT bash integration
 if [[ -e /usr/lib/git-core/git-sh-prompt ]]; then
