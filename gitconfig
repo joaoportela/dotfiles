@@ -3,7 +3,7 @@
 	pager = diff-so-fancy | less --tabs=4 -RFX
 [alias]
 	lg = log --all --graph --decorate --oneline --abbrev-commit --no-show-signature
-	gud = !git fetch --all --prune && git branch -vv
+	gud = !git fetch --prune && git branch -vv
 	subm-init = submodule update --init --recursive
 	subm = submodule update --recursive
 	subm1 = !git submodule sync && git submodule update --init --recursive --remote
@@ -24,3 +24,9 @@
 	old = red bold
 	new = green bold
 	whitespace = red reverse
+[log]
+    showSignature = true
+[submodule]
+	recurse = true
+[user]
+	name = João Portela
