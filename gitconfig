@@ -28,5 +28,7 @@
     showSignature = true
 [submodule]
 	recurse = true
+[sequence]
+    editor = code --wait
 [user]
 	name = João Portela
